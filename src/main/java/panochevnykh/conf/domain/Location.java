@@ -2,10 +2,7 @@ package panochevnykh.conf.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Collection;
 
 @Table
@@ -13,13 +10,23 @@ import java.util.Collection;
 public class Location {
     @Id
     @JsonIgnore
+    @GeneratedValue
     private Integer id;
     private String city;
     private String country;
+    @JsonIgnore
     @OneToMany(mappedBy="location")
     private Collection<Conference> tenants;
     public Integer getId() {
         return id;
+    }
+
+    public Collection<Conference> getTenants() {
+        return tenants;
+    }
+
+    public void setTenants(Collection<Conference> tenants) {
+        this.tenants = tenants;
     }
 
     public void setId(Integer id) {

@@ -1,9 +1,11 @@
 package panochevnykh.conf.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.mapping.Collection;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 import javax.persistence.*;
 
 @Entity
@@ -25,11 +27,20 @@ public class Conference {
         this.location = location;
     }
 
-    @ManyToOne()
-
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "conference_id")
     private Location location;
     @ElementCollection
-    private List<String> tags;
+    private Set<String> tags;
+
+    public Set<String> getTags() {
+        return tags;
+    }
+
+    public void setTags(Set<String> tags) {
+        this.tags = tags;
+    }
+
     private Date dateStart;
     private Date dateFinish;
     private String ytLink;
@@ -85,16 +96,6 @@ public class Conference {
 
     public void setProjects(List<String> projects) {
         this.projects = projects;
-    }
-
-
-
-    public List<String> getTags() {
-        return tags;
-    }
-
-    public void setTags(List<String> tags) {
-        this.tags = tags;
     }
 
     public List<Comment> getComments() {
