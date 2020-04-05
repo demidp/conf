@@ -2,7 +2,6 @@ package panochevnykh.conf.domain;
 
 
 import javax.persistence.*;
-@SuppressWarnings()
 @Entity
 @Table
 public class Comment {

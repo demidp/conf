@@ -16,10 +16,6 @@ public class ConfController {
         this.conferenceService = conferenceService;
     }
 
-    @GetMapping("hello")
-    public String getHello() {
-        return "Hello";
-    }
 
     @PostMapping(value = "addConference", consumes = "application/json")
     public void addConference(@RequestBody Conference conference) {
