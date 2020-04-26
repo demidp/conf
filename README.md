@@ -2,6 +2,6 @@
 Проект запускается локально <br>
 Для хранение данных о конференнциях используется удаленная бд <br>
 Для запуска проекта, требуется указать данные БД в */application.properties*  <br>
-spring.datasource.url=
-spring.datasource.username=
-spring.datasource.password=
+spring.datasource.url=<br>
+spring.datasource.username=<br>  
+spring.datasource.password=<br>
